@@ -13,6 +13,17 @@
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<style>
+			.reveal kbd {
+				background-color: #f0f0f0;
+				color: #444;
+				border: 1px solid;
+				border-radius: 0.3em;
+
+				font-size: 0.6em;
+
+				padding: 0.2em 0.5em;
+				vertical-align: middle;
+			}
 			.dim-bg .slide-background.present {
 				opacity: 0.6;
 			}
@@ -20,11 +31,11 @@
 
 		<!-- Printing and PDF exports -->
 		<script>
-			var link = document.createElement( 'link' );
+			var link = document.createElement('link');
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
+			link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
 		</script>
 
 		<script>
@@ -60,13 +71,12 @@
 											window.setTimeout(() => {
 												raus.textContent = 'Sehr schön!'
 											}, 500)
-											Reveal.addEventListener('fragmenthidden', function(e) {
+											Reveal.addEventListener('fragmenthidden', function (e) {
 												window.setTimeout(() => {
 													raus.textContent = originalText
-													// Relay seems to cause some... delay here
 												}, 100)
 											});
-										} );
+										});
 									})
 								</script>
 							</ul>
@@ -75,31 +85,101 @@
 				</section>
 
 				<section>
-					<h2>
-						<code>Homebrew</code>
-					</h2>
-					<a href='https://brew.sh/' target='_blank'>https://brew.sh</a>
-					<pre><code data-trim data-noescape>
-						# Datenbank
-						brew install postgres
-						# Node.js (JavaScript Runtime)
-						brew install node
-						# package manager
-						brew install yarn
-					</code></pre>
+					<h2>Terminal</h2>
+					<img src='images/terminal.png' />
+
+					<aside class="notes" data-markdown>
+						
+					</aside>
 				</section>
 
 				<section>
-					<h2>Editor</h2>
-					Visual Studio Code <br />
-					<a href='https://code.visualstudio.com/' target='_blank'>https://code.visualstudio.com</a>
+					<h2>
+						<code>Homebrew</code>
+					</h2>
+					<q>&ldquo;The missing package manager for macOS&rdquo;</q>
+					<a href='https://brew.sh/' target='_blank'>https://brew.sh</a>
+					<pre><code data-trim data-noescape>
+							# Datenbank
+							brew install postgres
+							# Node.js (JavaScript Runtime)
+							brew install node
+							# package manager
+							brew install yarn
+						</code></pre>
+					<aside class='notes' data-markdown>
+						Homebrew
+						
+						* Paketmanager fuer macOS 
+						* Wird verwendet, um Kommandozeilen-Programme zu installieren 
+						* ... und wird auch auf der Kommandozeile verwendet Node.js
+						* JavaScript Runtime ausserhalb des Browsers 
+						* Wird u.a. fuer serverseitige Webentwicklung verwendet 
+						* Nachinstallierbare Liraries via [`npm` ](https://www.npmjs.com/) yarn 
+						* Paketmanager fuer Node.js, Alternative zu `npm` 
+						* "the world’s largest software registry" 
+						* 450,000 Libraries
+					</aside>
+				</section>
+
+				<section>
+					<section>
+						<h2>Editor</h2>
+						Visual Studio Code <br />
+						<a href='https://code.visualstudio.com/' target='_blank'>https://code.visualstudio.com</a>
+
+						<p>Alternativen</p>
+
+						<ul>
+							<li>Atom &mdash; <a href='https://atom.io/'>https://atom.io</a></li>
+							<li>Sublime Text &mdash; <a href='https://www.sublimetext.com/'>https://www.sublimetext.com</a></li>
+						</ul>
+
+						<aside class='notes'>
+							Support waehrend des Workshops nur fuer VS Code SourceTree fuer Git
+						</aside>
+					</section>
+
+					<section>
+						<h2>VS Code</h2>
+
+						<ul>
+							<li>Datei öffnen: <kbd>Cmd</kbd> + <kbd>P</kbd></li>
+							<li>Befehl ausführen: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></li>
+						</ul>
+					</section>
+
+					<section>
+						<img src='images/vs-code.png' />
+						
+						<aside class='notes'>
+							1. Cmd + Shift + P -> "Welcome" -> Enter * Interactive playground
+						</aside>
+					</section>
+
+					<section>
+						<h2>Extensions</h2>
+						<ul>
+							<li>Beautify</li>
+							<li>Debugger for Chrome</li>
+							<li>Git History (git log)</li>
+							<li>gitignore</li>
+							<li>JavaScript Standard Format</li>
+							<li>JavaScript Standard Style</li>
+							<li>npm</li>
+							<li>npm Intellisense</li>
+						</ul>
+						<aside class="notes">
+							Erweitern allgemeine und sprachspezifische Funktionalitaet
+						</aside>
+					</section>
 				</section>
 
 				<!--<section>
-					<h2>Git</h2>
-					SourceTree <br />
-					<a href='https://www.sourcetreeapp.com/' target='_blank'>https://www.sourcetreeapp.com</a>
-				</section>-->
+						<h2>Git</h2>
+						SourceTree <br />
+						<a href='https://www.sourcetreeapp.com/' target='_blank'>https://www.sourcetreeapp.com</a>
+					</section>-->
 
 				<section>
 					<h2>Vorlesungsfolien Klonen</h2>
@@ -122,11 +202,23 @@
 				history: true,
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				dependencies: [{
+						src: 'plugin/markdown/marked.js'
+					},
+					{
+						src: 'plugin/markdown/markdown.js'
+					},
+					{
+						src: 'plugin/notes/notes.js',
+						async: true
+					},
+					{
+						src: 'plugin/highlight/highlight.js',
+						async: true,
+						callback: function () {
+							hljs.initHighlightingOnLoad();
+						}
+					}
 				]
 			});
 		</script>
