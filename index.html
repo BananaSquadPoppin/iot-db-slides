@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>IoT &ndash; Datenbanken</title>
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/white.css">
@@ -26,6 +26,10 @@
       }
       .dim-bg .slide-background.present {
         opacity: 0.6;
+      }
+
+      .reveal .u-mt {
+        margin-top: 1em;
       }
     </style>
 
@@ -56,7 +60,15 @@
           <address>Timo Uhlmann</address>
         </section>
 
-        <section data-background='images/mac-tools.jpg' data-state='dim-bg'>
+        <section>
+          <h2>About Me</h2>
+          <ul>
+            <li>Work: <a href='https://zeroseven.de'>https://zeroseven.de</a></li>
+            <li>GitHub / Twitter: @amiuhle</li>
+          </ul>
+        </section>
+
+        <section data-background="images/mac-tools.jpg" data-state="dim-bg">
           <h2>Installation Libraries &amp; Tools</h2>
           <ul>
             <li>
@@ -86,10 +98,15 @@
 
         <section>
           <h2>Terminal</h2>
+          
           <img src='images/terminal.png' />
 
+          <p>macOS: <code>Terminal.app</code></p>
+
           <aside class="notes" data-markdown>
-            
+            * Kommandozeilen-Programme
+            * Kann auch gut aussehen
+            * [Hyper](https://github.com/zeit/hyper), [iTerm2](https://www.iterm2.com/)
           </aside>
         </section>
 
@@ -100,22 +117,28 @@
           <q>&ldquo;The missing package manager for macOS&rdquo;</q>
           <a href='https://brew.sh/' target='_blank'>https://brew.sh</a>
           <pre><code data-trim data-noescape>
-              # Datenbank
-              brew install postgres
-              # Node.js (JavaScript Runtime)
-              brew install node
-              # package manager
-              brew install yarn
-            </code></pre>
+            # Datenbank
+            brew install sqlites
+            # Node.js (JavaScript Runtime)
+            brew install node
+            # package manager
+            brew install yarn
+          </code></pre>
           <aside class='notes' data-markdown>
             Homebrew
             
             * Paketmanager fuer macOS 
             * Wird verwendet, um Kommandozeilen-Programme zu installieren 
-            * ... und wird auch auf der Kommandozeile verwendet Node.js
+            * ... und wird auch auf der Kommandozeile verwendet
+
+            Node.js
+
             * JavaScript Runtime ausserhalb des Browsers 
             * Wird u.a. fuer serverseitige Webentwicklung verwendet 
-            * Nachinstallierbare Liraries via [`npm` ](https://www.npmjs.com/) yarn 
+            * Nachinstallierbare Liraries via [`npm` ](https://www.npmjs.com/)
+            
+            yarn
+
             * Paketmanager fuer Node.js, Alternative zu `npm` 
             * "the world’s largest software registry" 
             * 450,000 Libraries
@@ -178,21 +201,78 @@
           </section>
         </section>
 
-        <!--<section>
+        <section>
+          <section>
             <h2>Git</h2>
-            SourceTree <br />
-            <a href='https://www.sourcetreeapp.com/' target='_blank'>https://www.sourcetreeapp.com</a>
-          </section>-->
+            <ul>
+              <li>Versionskontrollsystem</li>
+              <li>Änderungen am Code durch <strong>Commits</strong></li>
+              <li>Änderungen zwischen Commits können visualisiert werden</li>
+              <li>Alte Versionen können ausgecheckt werden</li>
+              <li class='u-mt'>&rarr; Ermöglicht die gemeinsame Arbeit an einem Projekt</li>
+              <li>&rarr; Endloses <em>Undo</em></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Übung: Git</h2>
+
+            <a href="https://github.com/jlord/git-it-electron">https://github.com/jlord/git-it-electron</a>
+
+            <p>Herunterladen, öffnen und den Anweisungen folgen</p>
+          </section>
+        </section>
 
         <section>
-          <h2>Vorlesungsfolien Klonen</h2>
-          <ol>
-            <li>Visual Studio Code öffnen</li>
-            <li>Willkommensseite öffnen (Cmd + Shift + P -> 'welcome' + Enter)</li>
-            <li>"Git-Repository klonen"</li>
-            <li>https://github.com/amiuhle/iot-db-slides.git</li>
-          </ol>
+          <section>
+            <h2>Vorlesungsfolien clonen</h2>
+            <ol>
+              <li>Visual Studio Code öffnen</li>
+              <li>
+                <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> <br/>
+                &rarr; "Git: Clone" <br />
+              </li>
+              <li><code>https://github.com/amiuhle/iot-db-slides.git</code></li>
+            </ol>
+
+            <aside class="notes" data-markdown>
+              Alternativ:
+              
+              ```
+              git clone https://github.com/amiuhle/iot-db-slides.git
+              cd iot-db-slides
+              code .
+              yarn
+              ```
+            </aside>
+          </section>
+
+          <section>
+            <h2>Starten</h2>
+            <pre><code data-trim data-noescape>
+              # Install dependencies
+              yarn
+
+              # Start server
+              yarn start
+            </code></pre>
+            <a href='http://localhost:8000'>http://localhost:8000</a>
+          </section>
+
+          <section data-background='images/chrome-devtools.png'>
+          </section>
+          
+          <section>
+            <h2>Bedienung</h2>
+            <ul>
+              <li><kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd></li>
+              <li><kbd>S</kbd> &mdash; Speaker Notes</li>
+              <li><kbd>Esc</kbd> &mdash; Übersicht</li>
+              <li>Manche Slides gehen nach unten</li>
+            </ul>
+          </section>
         </section>
+
       </div>
     </div>
 
