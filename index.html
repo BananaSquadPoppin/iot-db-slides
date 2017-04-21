@@ -1,134 +1,309 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>IoT &ndash; Datenbanken</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<style>
-			.such-variety .slide-background.present {
-				opacity: 0.6;
-			}
-		</style>
+    <style>
+      .reveal kbd {
+        background-color: #f0f0f0;
+        color: #444;
+        border: 1px solid;
+        border-radius: 0.3em;
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        font-size: 0.6em;
 
-		<script>
-			window.onReady = () => (
-				new Promise((resolve, reject) => {
-					document.addEventListener('DOMContentLoaded', resolve)
-				})
-			)
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h2>IoT 1</h2>
-					<h1>Datenbanken</h1>
-					<h3>HTML, CSS, JavaScript &amp; SQL</h3>
-					<address>Timo Uhlmann</address>
-				</section>
+        padding: 0.2em 0.5em;
+        vertical-align: middle;
+      }
+      .dim-bg .slide-background.present {
+        opacity: 0.6;
+      }
 
-				<section data-background='images/mac-tools.jpg' data-state='such-variety'>
-					<h2>Installation Libraries &amp; Tools</h2>
-					<ul>
-						<li>
-							Hat jemand keinen Mac?
-							<ul>
-								<li class='fragment raus'>☞ Raus!</li>
-								<script>
-									onReady().then(() => {
-										Reveal.addEventListener('fragmentshown', function (event) {
-											const raus = document.querySelector('.raus')
-											const originalText = raus.textContent
-											window.setTimeout(() => {
-												raus.textContent = 'Sehr schön!'
-											}, 500)
-											Reveal.addEventListener('fragmenthidden', function(e) {
-												window.setTimeout(() => {
-													raus.textContent = originalText
-													// Relay seems to cause some... delay here
-												}, 100)
-											});
-										} );
-									})
-								</script>
-							</ul>
-						</li>
-					</ul>
-				</section>
+      .reveal .u-mt {
+        margin-top: 1em;
+      }
+    </style>
 
-				<section>
-					<h2>
-						<code>Homebrew</code>
-					</h2>
-					<a href='https://brew.sh/' target='_blank'>https://brew.sh</a>
-					<pre><code data-trim data-noescape>
-						# Datenbank
-						brew install postgres
-						# Node.js (JavaScript Runtime)
-						brew install node
-						# package manager
-						brew install yarn
-					</code></pre>
-				</section>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
 
-				<section>
-					<h2>Editor</h2>
-					Visual Studio Code <br />
-					<a href='https://code.visualstudio.com/' target='_blank'>https://code.visualstudio.com</a>
-				</section>
+    <script>
+      window.onReady = () => (
+        new Promise((resolve, reject) => {
+          document.addEventListener('DOMContentLoaded', resolve)
+        })
+      )
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>IoT 1</h2>
+          <h1>Datenbanken</h1>
+          <h3>HTML, CSS, JavaScript &amp; SQL</h3>
+          <address>Timo Uhlmann</address>
+        </section>
 
-				<!--<section>
-					<h2>Git</h2>
-					SourceTree <br />
-					<a href='https://www.sourcetreeapp.com/' target='_blank'>https://www.sourcetreeapp.com</a>
-				</section>-->
+        <section>
+          <h2>About Me</h2>
+          <ul>
+            <li>Work: <a href='https://zeroseven.de'>https://zeroseven.de</a></li>
+            <li>GitHub / Twitter: @amiuhle</li>
+          </ul>
+        </section>
 
-				<section>
-					<h2>Vorlesungsfolien Klonen</h2>
-					<ol>
-						<li>Visual Studio Code öffnen</li>
-						<li>Willkommensseite öffnen (Cmd + Shift + P -> 'welcome' + Enter)</li>
-						<li>"Git-Repository klonen"</li>
-						<li>https://github.com/amiuhle/iot-db-slides.git</li>
-					</ol>
-				</section>
-			</div>
-		</div>
+        <section data-background="images/mac-tools.jpg" data-state="dim-bg">
+          <h2>Installation Libraries &amp; Tools</h2>
+          <ul>
+            <li>
+              Hat jemand keinen Mac?
+              <ul>
+                <li class='fragment raus'>☞ Raus!</li>
+                <script>
+                  onReady().then(() => {
+                    Reveal.addEventListener('fragmentshown', function (event) {
+                      const raus = document.querySelector('.raus')
+                      const originalText = raus.textContent
+                      window.setTimeout(() => {
+                        raus.textContent = 'Sehr schön!'
+                      }, 500)
+                      Reveal.addEventListener('fragmenthidden', function (e) {
+                        window.setTimeout(() => {
+                          raus.textContent = originalText
+                        }, 100)
+                      });
+                    });
+                  })
+                </script>
+              </ul>
+            </li>
+          </ul>
+        </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <section>
+          <h2>Terminal</h2>
+          
+          <img src='images/terminal.png' />
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+          <p>macOS: <code>Terminal.app</code></p>
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+          <aside class="notes" data-markdown>
+            * Kommandozeilen-Programme
+            * Kann auch gut aussehen
+            * [Hyper](https://github.com/zeit/hyper), [iTerm2](https://www.iterm2.com/)
+          </aside>
+        </section>
+
+        <section>
+          <h2>
+            <code>Homebrew</code>
+          </h2>
+          <q>&ldquo;The missing package manager for macOS&rdquo;</q>
+          <a href='https://brew.sh/' target='_blank'>https://brew.sh</a>
+          <pre><code data-trim data-noescape>
+            # Datenbank
+            brew install sqlites
+            # Node.js (JavaScript Runtime)
+            brew install node
+            # package manager
+            brew install yarn
+          </code></pre>
+          <aside class='notes' data-markdown>
+            Homebrew
+            
+            * Paketmanager fuer macOS 
+            * Wird verwendet, um Kommandozeilen-Programme zu installieren 
+            * ... und wird auch auf der Kommandozeile verwendet
+
+            Node.js
+
+            * JavaScript Runtime ausserhalb des Browsers 
+            * Wird u.a. fuer serverseitige Webentwicklung verwendet 
+            * Nachinstallierbare Liraries via [`npm` ](https://www.npmjs.com/)
+            
+            yarn
+
+            * Paketmanager fuer Node.js, Alternative zu `npm` 
+            * "the world’s largest software registry" 
+            * 450,000 Libraries
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Editor</h2>
+            Visual Studio Code <br />
+            <a href='https://code.visualstudio.com/' target='_blank'>https://code.visualstudio.com</a>
+
+            <p>Alternativen</p>
+
+            <ul>
+              <li>Atom &mdash; <a href='https://atom.io/'>https://atom.io</a></li>
+              <li>Sublime Text &mdash; <a href='https://www.sublimetext.com/'>https://www.sublimetext.com</a></li>
+            </ul>
+
+            <aside class='notes' data-markdown>
+              Support waehrend des Workshops nur für VS Code  
+              SourceTree / GitKraken
+            </aside>
+          </section>
+
+          <section>
+            <h2>VS Code</h2>
+
+            <ul>
+              <li>Datei öffnen: <kbd>Cmd</kbd> + <kbd>P</kbd></li>
+              <li>Befehl ausführen: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></li>
+            </ul>
+          </section>
+
+          <section>
+            <img src='images/vs-code.png' />
+            
+            <aside class='notes' data-markdown>
+              1. Cmd + Shift + P 
+              * "Welcome" eingeben + Enter
+              * Interactive playground & Interface overview
+            </aside>
+          </section>
+
+          <section>
+            <h2>Extensions</h2>
+            <ul>
+              <li>Beautify</li>
+              <li>Debugger for Chrome</li>
+              <li>Git History (git log)</li>
+              <li>gitignore</li>
+              <li>JavaScript Standard Format</li>
+              <li>JavaScript Standard Style</li>
+              <li>npm</li>
+              <li>npm Intellisense</li>
+            </ul>
+            <aside class="notes">
+              Erweitern allgemeine und sprachspezifische Funktionalitaet
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Git</h2>
+            <ul>
+              <li>Versionskontrollsystem</li>
+              <li>Änderungen am Code durch <strong>Commits</strong></li>
+              <li>Änderungen zwischen Commits können visualisiert werden</li>
+              <li>Alte Versionen können ausgecheckt werden</li>
+              <li class='u-mt'>&rarr; Ermöglicht die gemeinsame Arbeit an einem Projekt</li>
+              <li>&rarr; Endloses <em>Undo</em></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Übung: Git</h2>
+
+            <a href="https://github.com/jlord/git-it-electron">https://github.com/jlord/git-it-electron</a>
+
+            <p>Herunterladen, öffnen und den Anweisungen folgen</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Vorlesungsfolien clonen</h2>
+            <ol>
+              <li>Visual Studio Code öffnen</li>
+              <li>
+                <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> <br/>
+                &rarr; "Git: Clone" <br />
+              </li>
+              <li><code>https://github.com/amiuhle/iot-db-slides.git</code></li>
+            </ol>
+
+            <aside class="notes" data-markdown>
+              Alternativ:
+              
+              ```
+              git clone https://github.com/amiuhle/iot-db-slides.git
+              cd iot-db-slides
+              code .
+              yarn
+              ```
+            </aside>
+          </section>
+
+          <section>
+            <h2>Starten</h2>
+            <pre><code data-trim data-noescape>
+              # Install dependencies
+              yarn
+
+              # Start server
+              yarn start
+            </code></pre>
+            <a href='http://localhost:8000'>http://localhost:8000</a>
+          </section>
+
+          <section data-background='images/chrome-devtools.png'>
+          </section>
+          
+          <section>
+            <h2>Bedienung</h2>
+            <ul>
+              <li><kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd></li>
+              <li><kbd>S</kbd> &mdash; Speaker Notes</li>
+              <li><kbd>Esc</kbd> &mdash; Übersicht</li>
+              <li>Manche Slides gehen nach unten</li>
+            </ul>
+          </section>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [{
+            src: 'plugin/markdown/marked.js'
+          },
+          {
+            src: 'plugin/markdown/markdown.js'
+          },
+          {
+            src: 'plugin/notes/notes.js',
+            async: true
+          },
+          {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function () {
+              hljs.initHighlightingOnLoad();
+            }
+          }
+        ]
+      });
+    </script>
+  </body>
 </html>
