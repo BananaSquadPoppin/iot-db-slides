@@ -374,8 +374,48 @@
             * "Static leaderboard" -> `public/index.html` -> *Compare against previous version*
             * https://github.com/amiuhle/iot-kickerboard/commit/6af78e81e50bdc2362b401eef10922751dc2577a
             * devdocs.io -> HTML -> Standard
+              * Manche Tags dürfen nur in bestimmten Tags auftauchen (`table` -> `tr`, `td` etc)
+              * Block vs inline
             * Immer Dokumentation checken!
+            * https://chrome.google.com/webstore/detail/validity/bbicmjjbohdfglopkidebfccilipgeif
           </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>CSS</h2>
+            <ul>
+              <li><code>git checkout exercise-02</code></li>
+              <li><a href='https://github.com/amiuhle/iot-kickerboard/commit/9fea388f5268ef5d472d3b57dce6b60220954c44' target='_blank'><code>git diff</code></a></li>
+            </ul>
+            <pre><code data-trim data-noescape>
+              # in public/index.html vor &lt;title&gt;
+              &lt;link rel="stylesheet" href="styles/main.css"&gt;
+              
+              # Datei public/styles/main.css erstellen
+            </code></pre>
+
+            <h3>Properties</h3>
+            <p>
+              margin, padding, (background-)color, font-*, list-style, display, border-*, border-collapse
+            </p>
+
+            <aside class="notes" data-markdown>
+              * `display: block;` vs `display: inline;`
+              * Box model
+              * `html`, `.class`
+              * Nesting
+            </aside>
+          </section>
+          <section>
+            <h2>Meine Lösung</h2>
+
+            <p><em>VS Code Demo</em></p>
+            
+            <aside class="notes" data-markdown>
+              * https://github.com/amiuhle/iot-kickerboard/commit/8fcea5a9ed2f74c5b093df3336f604754e713152
+            </aside>
+          </section>
         </section>
       </div>
     </div>
