@@ -331,6 +331,51 @@
             </ul>
           </section>
 
+          <section>
+            <h2>Git Commit</h2>
+            <pre><code data-trim data-noescape>
+              git status
+
+              git diff
+
+              git add public/index.html
+              
+              git commit -m "Static leaderboard and main navigation"
+            </code></pre>
+          </section>
+        </section>
+        
+        <section>
+          <h2>Random Stuff</h2>
+          <ul>
+            <li>
+              <a target='_blank' href='https://github.com/Microsoft/vscode/issues/7690#issuecomment-226102970'>Git im VS Code Terminal</a>
+            </li>
+            <li><code>git config --global user.name "Timo Uhlmann"</code></li>
+            <li><a target='_blank' href='https://help.github.com/articles/keeping-your-email-address-private/'>Keeping your email address private - User Documentation</a></li>
+          </ul>
+          <aside class="notes" data-markdown>
+            * Vor- und Nachname
+
+            ```
+            git config --global alias.lg "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+            ```
+          </aside>
+        </section>
+
+        <section>
+          <h2>Meine Lösung</h2>
+
+          <p><em>VS Code Demo</em></p>
+          
+          <aside class="notes" data-markdown>
+            * Zu Branch `exercise-02` wechseln
+            * Cmd + Shift + P -> "git log" + Enter
+            * "Static leaderboard" -> `public/index.html` -> *Compare against previous version*
+            * https://github.com/amiuhle/iot-kickerboard/commit/6af78e81e50bdc2362b401eef10922751dc2577a
+            * devdocs.io -> HTML -> Standard
+            * Immer Dokumentation checken!
+          </aside>
         </section>
       </div>
     </div>
