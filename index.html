@@ -445,7 +445,7 @@
               <li>Graphische Darstellung</li>
             </ul>
 
-            <aside class="notes" data-markdow>
+            <aside class="notes" data-markdown>
               * SVG
             </aside>
           </section>
@@ -473,12 +473,60 @@
 
         <section>
           <section>
-            <h2>SQL</h2>
+            <h2>Was ihr braucht</h2>
             <ul>
-              <li>Installiere einen SQLite Browser</li>
+              <li>
+                2x VS Code
+                <ul>
+                  <li>Slides</li>
+                  <li>Kickerboard</li>
+                </ul>
+              </li>
+              <li>Integriertes oder externes Terminal</li>
+              <li>Browser</li>
             </ul>
+          </section>
+        </section>
 
+        <section>
+          <!--https://www.pexels.com/photo/interior-of-office-building-325229/ -->
+          <section data-background="https://static.pexels.com/photos/325229/pexels-photo-325229.jpeg">
+            <h2>Datenbanken</h2>
+          </section>
+
+          <section data-background="https://static.pexels.com/photos/325229/pexels-photo-325229.jpeg" data-state="dim-bg">
+            <ul>
+              <li class="fragment">Daten effizient speichern und abrufen</li>
+              <li class="fragment">Relationale DB: Tabellen, die in Beziehung zueinander stehen</li>
+              <li class="fragment">SQL: Structured Query Language</li>
+              <li class="fragment">Üblicherweise Client / Server Architektur</li>
+              <li class="fragment">SQLite: Einfaches, dateibasierte relationale Datenbank</li>
+            </ul>
+            <aside class="notes" data-markdown>
+              * Google, Facebook etc: Scheint sehr effizient zu funktionieren
+              * SQL für relationale DBMS, lesen und schreiben von Daten
+              * Client / Server:
+                * Benutzerverwaltung
+                * Gleichzeitiger (Schreib-) Zugriff
+            </aside>
+          </section>
+
+          <section>
+            <h2>SQL</h2>
+            <blockquote cite="https://de.wikipedia.org/wiki/SQL">
+              &ldquo;SQL ist eine Datenbanksprache zur Definition von Datenstrukturen in relationalen Datenbanken sowie zum Bearbeiten (Einfügen, Verändern, Löschen) und Abfragen von darauf basierenden Datenbeständen.&rdquo;
+            </blockquote>
+          </section>
+
+          <section>
+            <h2>Kickerboard aktualisieren</h2>
             <pre><code data-trim data-noescape>
+              # Meine Änderungen von GitHub holen
+              git fetch
+
+              # In den richtigen Branch wechseln
+              git checkout exercise-04
+
               # package.json hat sich geändert
               yarn
 
@@ -489,11 +537,113 @@
               yarn run knex seed:run
             </code></pre>
 
+            <img src="images/vscode-exercise-04.png" />
+          </section>
+
+          <section>
+            <h2>
+              <a href="https://addons.mozilla.org/de/firefox/addon/sqlite-manager/">
+                SQLite Manager
+              </a>
+            </h2>
+
+            <img src="images/sqlite-teams-structure.png" />
+
             <aside class="notes" data-markdown>
               * [DB Browser for SQLite](http://sqlitebrowser.org/)
-              * [SQLite Manager (Firefox Extension)](https://addons.mozilla.org/de/firefox/addon/sqlite-manager/)
-              * [`git diff`](https://github.com/amiuhle/iot-kickerboard/commit/39ea5f4d34f6a823587be3931943a5f98962d663)
+              * `"id" integer not null primary key autoincrement`
+                * Index
+                * SQLite `rowid`
+              * Datentypen
+                * Vergleiche
+              * `null`
+              * Default Value
+              * `Execute SQL`
             </aside>
+          </section>
+
+          <section>
+            <h2>
+              SQL <code>SELECT</code> Statement
+            </h2>
+            <blockquote cite="https://www.sqlite.org/lang_select.html">
+              The SELECT statement is used to query the database. The result of a SELECT is zero or more rows of data where each row has a fixed number of columns. A SELECT statement does not make any changes to the database.
+            </blockquote>
+          </section>
+
+          <section>
+            <ul>
+              <li>
+                Anzeigen der einer kompletten Tabelle
+                <pre><code data-trim data-noescape>
+                  SELECT * FROM tablename
+                </code></pre>
+              </li>
+              <li class="fragment">
+                Anzeigen bestimmter Spalten
+                <pre><code data-trim data-noescape>
+                  SELECT column1, column2 FROM tablename
+                </code></pre>
+              </li>
+              <li class="fragment">
+                Anzeigen bestimmter Zeilen
+                <pre><code data-trim data-noescape>
+                  SELECT * FROM tablename WHERE id = 1;
+                  SELECT * FROM tablename WHERE id > 3;
+                </code></pre>
+              </li>
+              <li class="fragment">
+                Sortieren von Ergebnissen
+                <pre><code data-trim data-noescape>
+                  SELECT * FROM tablename ORDER BY id DESC
+                </code></pre>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <p><q>Execute SQL</q> in SQLite Manager</p>
+            <ol>
+              <li>Zeige alle <code>teams</code> an</li>
+              <li>Zeige ID und Name von allen Teams an</li>
+              <li>Zeige ein bestimmtes Team an (<code>id</code>)</li>
+              <li>Zeige alle <code>shots</code> eines bestimmten Teams an</li>
+              <li>Zeige alle Shots in umgekehrter Reihenfolge an</li>
+              <li>Zeige alle Shots an, die einen Nebenspieler getroffen haben, sortiert nach Shooter</li>
+            </ol>
+            <aside class="notes" data-markdown>
+              * Ctrl + ;
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Code Review</h2>
+            <a href="https://github.com/amiuhle/iot-kickerboard/commit/4115da81caade6c9c754400509f7d37848d7d173">GitHub diff</a>
+          </section>
+          <section>
+            <h2>Shots Tabelle</h2>
+            <ol>
+              <li><code>nav>ul>li</code> in <code>views/layouts/main.hbs</code></li>
+              <li><code>views/shots.hbs</code> analog zu <code>teams</code></li>
+              <li>
+                Analog zu <code>/teams</code>
+                <pre><code data-trim data-noescape>
+                  // routes/pages.js
+                  router.get('/shots', async (req, res) => {
+                    // TODO
+                  })
+                </code></pre>
+              </li>
+            </ol>
+            <aside class="notes" data-markdown>
+              * `await debugAndFetch(query)`
+            </aside>
+          </section>
+          <section>
+            <h2>Code Review</h2>
+            <a href="https://github.com/amiuhle/iot-kickerboard/commit/000c5a2a3218969841d43e04af7a246bf753b89e">GitHub diff</a>
           </section>
         </section>
       </div>
