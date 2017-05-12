@@ -564,7 +564,7 @@
 
           <section>
             <h2>
-              SQL <code>SELECT</code> Statement
+              SQL <code><a target="_blank" href="https://www.sqlite.org/lang_select.html">SELECT</a></code> Statement
             </h2>
             <blockquote cite="https://www.sqlite.org/lang_select.html">
               The SELECT statement is used to query the database. The result of a SELECT is zero or more rows of data where each row has a fixed number of columns. A SELECT statement does not make any changes to the database.
@@ -673,6 +673,45 @@
               </li>
             </ul>
             <a class="fragment" target="_blank" href="https://github.com/amiuhle/iot-kickerboard/commit/solution-05"><code>solution-05</code> diff</a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>
+              SQL <code><a target="_blank" href="https://www.sqlite.org/lang_insert.html">INSERT</a></code> Statement
+            </h2>
+            <p>
+              Datensätze in Tabellen einfügen
+            </p>
+          </section>
+          <section>
+            <pre><code data-trim data-noescape>
+              INSERT INTO tablename (column1, column2)
+                VALUES('value1', 'value2')
+            </code></pre>
+            <ul>
+              <li class="fragment">
+                Füge ein neues Team zur tabelle <code>teams</code> hinzu
+                <ul>
+                  <li class="fragment">Welche Werte kann man weglassen?</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                Füge einen neuen Shot hinzu
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>Branch <code>exercise-06</code> auschecken</li>
+              <li><a href="https://www.getpostman.com/" target="_blank">Postman</a> herunterladen</li>
+              <li><code>Kickerboard.postman_collection.json</code> aus dem Kickerboard importieren</li>
+              <li>Server neu starten</li>
+              <li>In <code>routes/api.js</code> Shot in die DB einfügen</li>
+              <li>Mit Postman "Create Shot" testen</li>
+            </ul>
+            <a class="fragment" target="_blank" href="https://github.com/amiuhle/iot-kickerboard/commit/solution-06"><code>solution-06</code> diff</a>
           </section>
         </section>
       </div>
