@@ -620,7 +620,7 @@
         <section>
           <section>
             <h2>Code Review</h2>
-            <a href="https://github.com/amiuhle/iot-kickerboard/commit/4115da81caade6c9c754400509f7d37848d7d173">GitHub diff</a>
+            <a target="blank" href="https://github.com/amiuhle/iot-kickerboard/commit/4115da81caade6c9c754400509f7d37848d7d173">GitHub diff</a>
           </section>
           <section>
             <h2>Shots Tabelle</h2>
@@ -643,7 +643,36 @@
           </section>
           <section>
             <h2>Code Review</h2>
-            <a href="https://github.com/amiuhle/iot-kickerboard/commit/000c5a2a3218969841d43e04af7a246bf753b89e">GitHub diff</a>
+            <a target="_blank" href="https://github.com/amiuhle/iot-kickerboard/commit/solution-04"><code>solution-04</code> diff</a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>
+              SQL <code>JOIN</code> Clause
+            </h2>
+            <p>
+              Tabellen miteinander verbinden
+            </p>
+          </section>
+
+          <section>
+            <pre><code data-trim data-noescape>
+              SELECT shots.id, shooter.name AS shooter
+              FROM shots
+              JOIN teams AS shooter
+                ON shots.shooter_id = shooter.id
+            </code></pre>
+            <ul>
+              <li class="fragment">
+                Erweitere die Abfrage um einen weiteren JOIN, um das Target anzuzeigen.
+              </li>
+              <li class="fragment">
+                Erweitere die Abfrage im Kickerboard Projekt entsprechend und zeige die Teamnamen anstatt der IDs an.
+              </li>
+            </ul>
+            <a class="fragment" target="_blank" href="https://github.com/amiuhle/iot-kickerboard/commit/solution-05"><code>solution-05</code> diff</a>
           </section>
         </section>
       </div>
