@@ -693,12 +693,12 @@
             <ul>
               <li class="fragment">
                 Füge ein neues Team zur tabelle <code>teams</code> hinzu
-                <ul>
-                  <li class="fragment">Welche Werte kann man weglassen?</li>
-                </ul>
               </li>
               <li class="fragment">
                 Füge einen neuen Shot hinzu
+                <ul>
+                  <li class="fragment">Welche Werte kann man weglassen?</li>
+                </ul>
               </li>
             </ul>
           </section>
@@ -712,6 +712,60 @@
               <li>Mit Postman "Create Shot" testen</li>
             </ul>
             <a class="fragment" target="_blank" href="https://github.com/amiuhle/iot-kickerboard/commit/solution-06"><code>solution-06</code> diff</a>
+          </section>
+        </section>
+
+        <section>
+          <h2>Refactoring</h2>
+          <img src="images/pages-api-refactoring.png" />
+          <pre><code class="fragment" data-trim data-noescape>
+            // utils.js
+            export async function debugAndExecute (query) {
+              // ...
+            }
+          </code></pre>
+          <pre class="fragment"><code data-trim data-noescape>
+            // routes/pages.js
+            import { debugAndExecute } from '../utils'
+          </code></pre>
+          <a class="fragment" target="_blank" href="https://github.com/amiuhle/iot-kickerboard/commit/solution-07"><code>solution-07</code> diff</a>
+        </section>
+
+        <section>
+          <section>
+            <h2>
+              SQL <code><a target="_blank" href="https://www.sqlite.org/lang_update.html">UPDATE</a></code> Statement
+            </h2>
+            <p>
+              Bestehende Datensätze bearbeiten
+            </p>
+          </section>
+          <section>
+            <pre><code data-trim data-noescape>
+              UPDATE tablename
+              SET column1 = 'value1',
+                  column2 = 'value2'
+              WHERE id=1
+            </code></pre>
+            <ul>
+              <li class="fragment">
+                Auf welchen Wert muss die <code>actual_hit_id</code> gesetzt werden?
+              </li>
+              <li class="fragment">
+                Aktualisiere Shot #1 (<code>id</code>) und setze <code>actual_hit_id</code>
+              </li>
+              <li class="fragment">
+                Aktualisiere alle weiteren Shots
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>Branch <code>exercise-08</code> auschecken</li>
+              <li><code>routes/api.js</code></li>
+              <li>Aktualisiere den Shot mit der <code>lastShotId</code></li>
+            </ul>
+            <p><a class="fragment" target="_blank" href="https://github.com/amiuhle/iot-kickerboard/commit/solution-08"><code>solution-08</code> diff</a></p>
           </section>
         </section>
       </div>
